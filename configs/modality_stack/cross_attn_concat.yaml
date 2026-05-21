@@ -1,0 +1,21 @@
+modality_stack:
+  text:
+    kind: layer_cross_attn
+    heads: 4
+    n_queries: 1
+    query_output: concat
+    attn_dropout: 0.0
+  audio:
+    kind: layer_cross_attn
+    heads: 4
+    n_queries: 1
+    query_output: concat
+    attn_dropout: 0.0
+  vision:
+    kind: layer_cross_attn
+    heads: 4
+    n_queries: 1
+    query_output: concat
+    attn_dropout: 0.0
+  fusion:
+    kind: cat

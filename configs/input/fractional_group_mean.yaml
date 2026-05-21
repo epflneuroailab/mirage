@@ -1,0 +1,10 @@
+input:
+  text:
+    layer_fractions: [0.5, 0.75, 1.0]
+    layer_aggregation: group_mean
+  audio:
+    layer_fractions: [0.5, 0.75, 1.0]
+    layer_aggregation: group_mean
+  vision:
+    layer_fractions: [0.5, 0.75, 1.0]
+    layer_aggregation: group_mean

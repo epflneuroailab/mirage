@@ -1,0 +1,9 @@
+modality_stack:
+  text:
+    kind: cat
+  audio:
+    kind: cat
+  vision:
+    kind: cat
+  fusion:
+    kind: cat

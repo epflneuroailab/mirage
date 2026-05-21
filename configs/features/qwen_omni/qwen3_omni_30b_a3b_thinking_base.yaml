@@ -1,0 +1,48 @@
+data:
+  text:
+    name: qwen3_omni_30b_a3b_thinking_windowed
+    model_id: Qwen/Qwen3-Omni-30B-A3B-Thinking
+    available_modalities: [audio, text, vision]
+    stream_kind: language_post_fusion
+    layer_selection: all
+    layer_aggregation: null
+    device: cuda
+    dtype: bfloat16
+    trust_remote_code: true
+    processor_fps: 2.0
+    text_window_words: 1024
+    audio_window_seconds: 60.0
+    vision_window_seconds: 4.0
+    vision_window_max_frames: 8
+  audio:
+    name: qwen3_omni_30b_a3b_thinking_windowed
+    model_id: Qwen/Qwen3-Omni-30B-A3B-Thinking
+    available_modalities: [audio, text, vision]
+    tower_only: false
+    stream_kind: audio_post_fusion
+    layer_selection: all
+    layer_aggregation: null
+    device: cuda
+    dtype: bfloat16
+    trust_remote_code: true
+    processor_fps: 2.0
+    text_window_words: 1024
+    audio_window_seconds: 60.0
+    vision_window_seconds: 4.0
+    vision_window_max_frames: 8
+  vision:
+    name: qwen3_omni_30b_a3b_thinking_windowed
+    model_id: Qwen/Qwen3-Omni-30B-A3B-Thinking
+    available_modalities: [audio, text, vision]
+    tower_only: false
+    stream_kind: vision_post_fusion
+    layer_selection: all
+    layer_aggregation: null
+    device: cuda
+    dtype: bfloat16
+    trust_remote_code: true
+    processor_fps: 2.0
+    text_window_words: 1024
+    audio_window_seconds: 60.0
+    vision_window_seconds: 4.0
+    vision_window_max_frames: 8

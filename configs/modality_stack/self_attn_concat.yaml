@@ -1,0 +1,24 @@
+modality_stack:
+  text:
+    kind: layer_self_attn
+    heads: 4
+    n_queries: 1
+    query_output: concat
+    attn_dropout: 0.0
+    depth: 1
+  audio:
+    kind: layer_self_attn
+    heads: 4
+    n_queries: 1
+    query_output: concat
+    attn_dropout: 0.0
+    depth: 1
+  vision:
+    kind: layer_self_attn
+    heads: 4
+    n_queries: 1
+    query_output: concat
+    attn_dropout: 0.0
+    depth: 1
+  fusion:
+    kind: cat

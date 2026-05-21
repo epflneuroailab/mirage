@@ -1,0 +1,7 @@
+readout:
+  temporal_reducer:
+    location: post_head
+    kind: adaptive_avg
+    n_output_timesteps: 100
+  head:
+    kind: subject_linear

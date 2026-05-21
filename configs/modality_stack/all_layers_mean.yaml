@@ -1,0 +1,9 @@
+modality_stack:
+  text:
+    kind: mean
+  audio:
+    kind: mean
+  vision:
+    kind: mean
+  fusion:
+    kind: cat

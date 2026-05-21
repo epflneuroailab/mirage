@@ -1,0 +1,10 @@
+input:
+  text:
+    layer_selection: all
+    layer_aggregation: null
+  audio:
+    layer_selection: all
+    layer_aggregation: null
+  vision:
+    layer_selection: all
+    layer_aggregation: null

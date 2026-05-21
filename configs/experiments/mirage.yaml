@@ -1,0 +1,100 @@
+# MIRAGE flagship experiment.
+#
+# Run with:
+#   python -m brain_enc.cli.train --config configs/experiments/mirage.yaml
+
+compose:
+  features:
+    - configs/features/qwen_omni/qwen3_omni_30b_a3b_thinking_base.yaml
+  input: configs/input/all_layers_unpooled.yaml
+  modality_stack: configs/modality_stack/cross_attn_concat.yaml
+  readout: configs/readout/subject_linear_post_head_avg.yaml
+
+data:
+  dataset_name: algonauts2025
+  split_strategy: friends_season_holdout
+  holdout_friends_season: 6
+  val_ratio: 0.1
+  split_seed: 0
+  num_workers: 32
+  prefetch_factor: 1
+  batch_size: 16
+
+extract:
+  modalities: [text, audio, vision]
+
+modality_stack:
+  text:
+    heads: 4
+    n_queries: 24
+    attn_dropout: 0.2
+  audio:
+    heads: 4
+    n_queries: 24
+    attn_dropout: 0.2
+  vision:
+    heads: 4
+    n_queries: 24
+    attn_dropout: 0.2
+
+model:
+  hidden_dim: 3072
+  depth: 8
+  heads: 8
+  ff_mult: 4
+  attn_dropout: 0.0
+  ff_dropout: 0.0
+  layer_dropout: 0.0
+  gating_dropout: 0.0
+  n_output_timesteps: 100
+  feature_aggregation: cat
+  layer_aggregation: cat
+  projector_kind: linear
+  subject_embedding: false
+  modality_dropout: 0.3
+  fmri_head: subject_linear
+
+optim:
+  optimizer:
+    name: AdamW
+    lr: 0.0001
+    weight_decay: 0.01
+    fused: false
+  scheduler:
+    name: OneCycleLR
+    pct_start: 0.1
+    warmup_ratio: 0.1
+    min_lr_ratio: 0.0
+  swa:
+    enabled: false
+    swa_epoch_start: 0.6
+    swa_lrs: 0.00001
+    annealing_strategy: cos
+
+training:
+  n_epochs: 15
+  seed: 33
+  accelerator: gpu
+  devices: 1
+  precision: "16-mixed"
+  gradient_clip_val: 1.0
+  limit_train_batches: null
+  fast_dev_run: false
+  enable_progress_bar: true
+  progress_bar_style: tqdm
+  progress_bar_refresh_rate: 1
+  log_every_n_steps: 5
+  save_checkpoints: true
+  loss: mse
+  monitor: val/pearson
+  monitor_mode: max
+  log_grad_norm: true
+  log_param_norm: true
+  log_amp_diagnostics: false
+  log_cuda_memory: false
+
+wandb:
+  enabled: false
+  project: mirage
+  group: mirage
+  entity: null
