@@ -17,7 +17,7 @@ python -m brain_enc.cli.extract_features \
 
 Useful flags:
 
-- `--stimulus-index N`: extract one stimulus for smoke runs.
+- `--stimulus-index N`: extract features for one stimulus.
 - `--overwrite`: rewrite existing cache entries.
 - `--save-dtype fp16|fp32`: choose stored feature dtype.
 

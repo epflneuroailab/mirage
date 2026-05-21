@@ -57,6 +57,25 @@ python -m brain_enc.cli.infer_fmri \
 `--subject-idx` uses the Algonauts subject order:
 `0=sub-01`, `1=sub-02`, `2=sub-03`, `3=sub-05`.
 
+## Online Video Demo
+
+For a one-command test on a short online MP4, run:
+
+```bash
+bash scripts/run_online_video_demo.sh
+```
+
+The script downloads a demo video, downloads the public MIRAGE weights if
+needed, runs fMRI inference for `sub-01`, and writes predicted fMRI plus
+glass-brain PNG/MP4 visualizations under:
+
+```text
+outputs/online_video_demo/
+```
+
+Use `MIRAGE_VIDEO_URL`, `MIRAGE_SUBJECTS`, `MIRAGE_DEVICE`,
+`MIRAGE_VIDEO_FPS`, and `MIRAGE_VIDEO_MAX_FRAMES` to customize the demo.
+
 ## Public Workflows
 
 Training requires cached features, so run extraction first:
@@ -76,6 +95,27 @@ The selected public model config is:
 ```text
 configs/experiments/mirage.yaml
 ```
+
+## Results
+
+MIRAGE results on the Algonauts 2025 CNeuroMod splits. Values are mean
+Pearson r across the four trained subjects. Friends s06 is the held-out
+validation split used during development; Friends s07 is the held-out
+in-distribution benchmark; OOD is the held-out movie benchmark.
+
+| Model | Friends s06 eval | Friends s07 held-out in-dist eval | OOD eval | Notes |
+|---|---:|---:|---:|---|
+| MIRAGE single model | 0.319 | 0.310 | 0.217 | Hugging Face checkpoint |
+| MIRAGE 15-member ensemble | 0.335 | 0.323 | 0.227 | Algonauts 2025 final submission ensemble |
+
+Per-subject Pearson r on the OOD test set:
+
+| Subject | Pearson r |
+|---|---|
+| sub-01 | 0.244 |
+| sub-02 | 0.210 |
+| sub-03 | 0.235 |
+| sub-05 | 0.179 |
 
 ## Citation
 
