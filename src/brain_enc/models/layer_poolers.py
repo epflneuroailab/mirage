@@ -4,7 +4,6 @@ Each pooler consumes a tensor shaped ``(B, L, T, D)`` and returns
 ``(B, T, D_out)`` so the downstream projector/trunk contract remains unchanged.
 """
 
-from __future__ import annotations
 
 import math
 import typing as tp

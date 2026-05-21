@@ -64,6 +64,7 @@ Training requires cached features, so run extraction first:
 1. [Feature extraction](docs/feature_extraction.md) — required before training.
 2. [Training](docs/training.md)
 3. [Evaluation and S7/OOD submissions](docs/eval_submission.md)
+4. [Parcel-weighted ensembling](docs/eval_submission.md#ensembling) — optional, combines multiple trained runs.
 
 Manifest inference uses the downloaded Hugging Face weights and does not
 require local feature extraction:

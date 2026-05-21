@@ -1,6 +1,5 @@
 """Shared modality helpers for conditioned multimodal extraction."""
 
-from __future__ import annotations
 
 import typing as tp
 

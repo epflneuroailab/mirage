@@ -1,6 +1,5 @@
 """Batch raw-video fMRI inference from a small public manifest."""
 
-from __future__ import annotations
 
 import argparse
 import csv

@@ -17,7 +17,6 @@ GroupedExplainedVariance:
     ``update(pred, target, group)``.
 """
 
-from __future__ import annotations
 
 import torch
 

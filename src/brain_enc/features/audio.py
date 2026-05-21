@@ -16,7 +16,6 @@ possible), each chunk is encoded independently, then each chunk is temporally
 resampled to 2 Hz with ``torch.nn.functional.interpolate(..., mode="nearest")``.
 """
 
-from __future__ import annotations
 
 import logging
 import typing as tp

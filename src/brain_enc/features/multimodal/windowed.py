@@ -1,6 +1,5 @@
 """Windowed and text-only Qwen multimodal extractor variants."""
 
-from __future__ import annotations
 
 import typing as tp
 

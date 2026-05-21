@@ -22,7 +22,6 @@ pooling is applied on the fly at read time so different pooling strategies can
 be compared without re-extracting features.
 """
 
-from __future__ import annotations
 
 from collections import OrderedDict
 import dataclasses

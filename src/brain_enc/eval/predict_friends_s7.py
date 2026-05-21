@@ -4,7 +4,6 @@ Thin wrapper around the generic challenge submission predictor for the
 in-distribution Friends S7 benchmark.
 """
 
-from __future__ import annotations
 
 from pathlib import Path
 

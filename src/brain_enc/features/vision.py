@@ -16,7 +16,6 @@ over patch tokens for each layer; later layer-group pooling is
 deferred to training/evaluation.
 """
 
-from __future__ import annotations
 
 import logging
 import typing as tp

@@ -1,6 +1,5 @@
 """Qwen Omni extractor registrations."""
 
-from __future__ import annotations
 
 from dataclasses import dataclass
 

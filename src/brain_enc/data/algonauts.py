@@ -37,7 +37,6 @@ fMRI HDF5 key format:
     movie10  → ses-{NNN}_task-{movie}{chunk:02d}[_run-{run}]
 """
 
-from __future__ import annotations
 
 import ast
 import logging

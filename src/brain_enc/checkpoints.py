@@ -1,6 +1,5 @@
 """Helpers for loading trusted checkpoints."""
 
-from __future__ import annotations
 
 from pathlib import Path
 from typing import Any

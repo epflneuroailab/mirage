@@ -4,7 +4,6 @@ Thin wrapper around the generic challenge submission predictor for the
 out-of-distribution benchmark.
 """
 
-from __future__ import annotations
 
 from brain_enc.eval.predict_submission import predict_submission_benchmark
 

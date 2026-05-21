@@ -54,7 +54,6 @@ The extraction CLI defaults to casting features to ``float16`` just before
 write, but callers may still preserve source dtype explicitly.
 """
 
-from __future__ import annotations
 
 import json
 import logging

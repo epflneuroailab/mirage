@@ -12,7 +12,6 @@ chunks from the reference events table, e.g. ``"chunk:e01a"`` for Friends and
 ``"chunk:1"`` for Movie10.
 """
 
-from __future__ import annotations
 
 import hashlib
 import random

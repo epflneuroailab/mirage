@@ -1,6 +1,5 @@
 """Public Qwen multimodal extractor package."""
 
-from __future__ import annotations
 
 from .base import QwenOmniExtractorBase
 from .causal import QwenOmniCausalExtractorBase

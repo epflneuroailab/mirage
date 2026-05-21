@@ -1,6 +1,5 @@
 """Stateless media loading helpers for Qwen multimodal extraction."""
 
-from __future__ import annotations
 
 import ast
 import json

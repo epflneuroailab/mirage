@@ -4,7 +4,6 @@ The public entrypoint remains ``python -m brain_enc.cli.infer_fmri``. This
 module owns the runtime work so the CLI package can stay as a thin shell.
 """
 
-from __future__ import annotations
 
 import argparse
 import logging

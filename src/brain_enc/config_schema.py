@@ -4,7 +4,6 @@ All config objects are Pydantic models so they can be built from YAML dicts,
 validated eagerly, and serialised back to disk.
 """
 
-from __future__ import annotations
 
 import copy
 import dataclasses

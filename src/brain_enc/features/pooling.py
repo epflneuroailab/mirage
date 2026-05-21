@@ -22,7 +22,6 @@ Temporal pooling
     timestamps.  ``target_times`` are in seconds (start of each TR window).
 """
 
-from __future__ import annotations
 
 import numpy as np
 

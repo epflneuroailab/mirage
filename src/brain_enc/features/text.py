@@ -15,7 +15,6 @@ Layer pooling is not applied during extraction. The raw
 training/evaluation.
 """
 
-from __future__ import annotations
 
 import bisect
 import logging

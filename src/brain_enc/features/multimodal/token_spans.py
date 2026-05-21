@@ -1,6 +1,5 @@
 """Stateless token-span helpers for Qwen multimodal extraction."""
 
-from __future__ import annotations
 
 import typing as tp
 

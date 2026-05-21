@@ -7,7 +7,6 @@ Supported variants range from a single linear projection to LayerNorm/GELU MLP
 blocks used by the base brain encoder configs.
 """
 
-from __future__ import annotations
 
 import torch
 import torch.nn as nn

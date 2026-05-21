@@ -1,6 +1,5 @@
 """Shared Qwen Omni extractor identifiers and resolution helpers."""
 
-from __future__ import annotations
 
 import typing as tp
 

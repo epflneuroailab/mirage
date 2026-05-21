@@ -5,7 +5,6 @@ separate from fMRI heads so experiments can move temporal aggregation before or
 after subject-specific parcel decoding.
 """
 
-from __future__ import annotations
 
 import typing as tp
 

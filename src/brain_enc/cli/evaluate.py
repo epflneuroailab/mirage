@@ -25,7 +25,6 @@ Usage
         --predict-ood
 """
 
-from __future__ import annotations
 
 import argparse
 import logging

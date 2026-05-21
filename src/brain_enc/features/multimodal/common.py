@@ -1,6 +1,5 @@
 """Shared constants and value objects for Qwen multimodal extraction."""
 
-from __future__ import annotations
 
 from dataclasses import dataclass
 

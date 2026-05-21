@@ -1,6 +1,5 @@
 """Shared prompt helpers for Qwen multimodal extraction."""
 
-from __future__ import annotations
 
 import hashlib
 import typing as tp

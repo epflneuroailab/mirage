@@ -17,7 +17,6 @@ Stubs raise NotImplementedError to make it obvious if accidentally used before
 Phase 3 implementation.
 """
 
-from __future__ import annotations
 
 import typing as tp
 

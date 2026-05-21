@@ -9,7 +9,6 @@ Usage
         training.n_epochs=5 training.fast_dev_run=true
 """
 
-from __future__ import annotations
 
 import argparse
 import json

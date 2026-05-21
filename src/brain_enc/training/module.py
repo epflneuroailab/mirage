@@ -9,7 +9,6 @@ Wraps the configured brain encoder and handles:
   - optimiser + scheduler configuration (Adam + OneCycleLR)
 """
 
-from __future__ import annotations
 
 import logging
 import math

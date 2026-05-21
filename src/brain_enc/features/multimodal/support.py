@@ -1,6 +1,5 @@
 """Shared support types and helpers for multimodal feature extraction."""
 
-from __future__ import annotations
 
 import dataclasses
 import typing as tp

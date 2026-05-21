@@ -1,6 +1,5 @@
 """CLI: build a canonical TSV manifest bundle from the raw dataset tree."""
 
-from __future__ import annotations
 
 import argparse
 import logging

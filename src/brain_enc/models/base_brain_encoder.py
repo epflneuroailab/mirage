@@ -18,7 +18,6 @@ Architecture:
     (B, n_output_timesteps, n_parcels)
 """
 
-from __future__ import annotations
 
 import typing as tp
 

@@ -1,6 +1,5 @@
 """Shared cache-identity helpers for conditioned feature stores."""
 
-from __future__ import annotations
 
 import typing as tp
 

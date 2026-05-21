@@ -1,6 +1,5 @@
 """Qwen Omni conditioned multimodal feature extraction."""
 
-from __future__ import annotations
 
 import logging
 import typing as tp

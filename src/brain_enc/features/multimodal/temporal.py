@@ -1,6 +1,5 @@
 """Temporal Qwen helpers shared by causal and windowed extractors."""
 
-from __future__ import annotations
 
 import bisect
 import typing as tp

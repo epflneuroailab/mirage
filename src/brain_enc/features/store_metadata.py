@@ -1,6 +1,5 @@
 """Helpers for consistent feature-store root metadata."""
 
-from __future__ import annotations
 
 import typing as tp
 

@@ -26,7 +26,6 @@ Usage
         --out-dir /path/to/submission
 """
 
-from __future__ import annotations
 
 import argparse
 import json

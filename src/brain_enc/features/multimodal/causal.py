@@ -1,6 +1,5 @@
 """Stimulus-time-causal Qwen multimodal extractors."""
 
-from __future__ import annotations
 
 import typing as tp
 

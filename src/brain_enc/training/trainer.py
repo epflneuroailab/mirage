@@ -11,7 +11,6 @@
   5. Save metrics and per-parcel Pearson array.
 """
 
-from __future__ import annotations
 
 import csv
 from contextlib import nullcontext

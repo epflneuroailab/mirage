@@ -4,7 +4,6 @@ Support both MoviePy 1.x, which exposes ``moviepy.editor.VideoFileClip``, and
 MoviePy 2.x, which exposes ``moviepy.VideoFileClip`` at the top level.
 """
 
-from __future__ import annotations
 
 
 def VideoFileClip(*args, **kwargs):

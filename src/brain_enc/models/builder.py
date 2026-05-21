@@ -1,6 +1,5 @@
 """Model factory for brain encoders."""
 
-from __future__ import annotations
 
 import logging
 import typing as tp

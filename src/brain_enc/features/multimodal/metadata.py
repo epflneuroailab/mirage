@@ -1,6 +1,5 @@
 """Shared metadata builders for Qwen multimodal feature extraction."""
 
-from __future__ import annotations
 
 import typing as tp
 

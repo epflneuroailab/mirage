@@ -1,6 +1,5 @@
 """Base interfaces and registry for feature extractors."""
 
-from __future__ import annotations
 
 import dataclasses
 import os

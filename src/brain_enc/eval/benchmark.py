@@ -12,7 +12,6 @@ reproduction report:
 Designed to be called from ``cli/evaluate.py`` or standalone.
 """
 
-from __future__ import annotations
 
 import json
 import logging

@@ -1,6 +1,5 @@
 """Shared temporal alignment helpers used across feature extractors."""
 
-from __future__ import annotations
 
 
 def overlap_slice(

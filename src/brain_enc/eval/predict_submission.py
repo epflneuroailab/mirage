@@ -11,7 +11,6 @@ window-by-window, concatenate the resulting 100-TR predictions per stimulus,
 and trim to the organizer-provided ``target_sample_number``.
 """
 
-from __future__ import annotations
 
 import json
 import logging

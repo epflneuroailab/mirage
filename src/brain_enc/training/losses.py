@@ -5,7 +5,6 @@ CKALoss are available as alternatives or as weighted composite objectives.
 RSA/CKA can use either ``1 - similarity`` or ``log(1 - similarity)``.
 """
 
-from __future__ import annotations
 
 import torch
 import torch.nn as nn

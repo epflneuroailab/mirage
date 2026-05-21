@@ -18,7 +18,6 @@ Caches are written under
 ``$SCRATCHPATH/$DATASET_PATH/extracted_features/<extractor_id>/...``.
 """
 
-from __future__ import annotations
 
 import argparse
 import logging

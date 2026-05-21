@@ -1,6 +1,5 @@
 """Shared feature-extraction orchestration for the extract-features CLI."""
 
-from __future__ import annotations
 
 import inspect
 import json

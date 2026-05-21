@@ -5,7 +5,6 @@ without touching model or trainer setup. It is intended for reuse from
 interactive notebooks and lightweight profiling scripts.
 """
 
-from __future__ import annotations
 
 import dataclasses
 import json

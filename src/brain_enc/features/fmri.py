@@ -21,7 +21,6 @@ The feature pipeline keeps fMRI time-major end to end:
 ``(n_trs, 1000)`` (time × parcels) in memory and on disk.
 """
 
-from __future__ import annotations
 
 import logging
 from pathlib import Path

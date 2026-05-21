@@ -8,7 +8,6 @@ Uses x-transformers ``Encoder`` with:
   - optional subject embeddings (off by default)
 """
 
-from __future__ import annotations
 
 import torch
 import torch.nn as nn
