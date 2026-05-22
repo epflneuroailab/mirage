@@ -28,7 +28,7 @@ Set cluster-local paths with environment variables. Relative paths are resolved
 under `SCRATCHPATH`.
 
 ```bash
-export SCRATCHPATH=/mnt/scratch
+export SCRATCHPATH=./scratch
 export DATASET_PATH=datasets/algonauts_2025
 export OUTPUT_PATH=outputs/mirage
 ```
@@ -38,7 +38,7 @@ export OUTPUT_PATH=outputs/mirage
 Download the public model files from Hugging Face:
 
 ```bash
-huggingface-cli download epfl-neuroai/mirage \
+hf download epfl-neuroai/mirage \
   model.safetensors config.yaml \
   --local-dir weights/mirage
 ```

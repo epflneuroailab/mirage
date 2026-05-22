@@ -123,6 +123,7 @@ class QwenOmniTemporalExtractorBase(QwenOmniExtractorBase):
         use_audio_in_video = self._resolve_use_audio_in_video(
             target_modality=target_modality,
             available_modalities=available_modalities,
+            has_audio=audio is not None,
             has_video=videos is not None,
         )
         prompt = self._build_prompt_text(

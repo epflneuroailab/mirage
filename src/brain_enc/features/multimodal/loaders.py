@@ -5,6 +5,7 @@ import ast
 import json
 import logging
 from pathlib import Path
+import subprocess
 import typing as tp
 
 import numpy as np
@@ -118,9 +119,38 @@ def load_audio_array(
             clip.close()
             mono = to_mono_audio(audio_array)
             return resample_audio(mono, native_sr, target_sr)
-        except Exception as exc:
-            logger.warning("Failed to decode audio from %s: %s", path, exc)
-            return None
+        except Exception as moviepy_exc:
+            try:
+                decoded = subprocess.run(
+                    [
+                        "ffmpeg",
+                        "-v",
+                        "error",
+                        "-i",
+                        str(path),
+                        "-vn",
+                        "-map",
+                        "0:a:0",
+                        "-ac",
+                        "1",
+                        "-ar",
+                        str(target_sr),
+                        "-f",
+                        "f32le",
+                        "-",
+                    ],
+                    check=True,
+                    capture_output=True,
+                )
+                return np.frombuffer(decoded.stdout, dtype=np.float32).copy()
+            except Exception as ffmpeg_exc:
+                logger.warning(
+                    "Failed to decode audio from %s with MoviePy (%s) or ffmpeg (%s)",
+                    path,
+                    moviepy_exc,
+                    ffmpeg_exc,
+                )
+                return None
 
     try:
         import soundfile as sf

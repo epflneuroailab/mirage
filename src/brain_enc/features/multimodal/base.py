@@ -383,6 +383,7 @@ class QwenOmniExtractorBase(FeatureExtractor):
         use_audio_in_video = self._resolve_use_audio_in_video(
             target_modality=request.target_modality,
             available_modalities=request.available_modalities,
+            has_audio=audio is not None,
             has_video=videos is not None,
         )
         prompt = self._build_prompt_text(
@@ -938,6 +939,7 @@ class QwenOmniExtractorBase(FeatureExtractor):
         *,
         target_modality: Modality,
         available_modalities: tuple[Modality, ...],
+        has_audio: bool,
         has_video: bool,
     ) -> bool:
         post_fusion_target = target_modality == "text" or (
@@ -950,6 +952,7 @@ class QwenOmniExtractorBase(FeatureExtractor):
             and post_fusion_target
             and "audio" in available_modalities
             and "vision" in available_modalities
+            and has_audio
             and has_video
         ):
             return False

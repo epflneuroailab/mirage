@@ -88,6 +88,15 @@ def compute_segment_starts(total_duration_s: float) -> list[float]:
     return [-HRF_DELAY_S + k * WINDOW_DURATION_S for k in range(n_windows)]
 
 
+def trim_predictions_to_duration(predictions: np.ndarray, duration_s: float) -> np.ndarray:
+    """Trim fixed-window predictions to one raw video's fMRI grid length."""
+
+    if duration_s <= 0.0:
+        return predictions
+    n_trs = max(1, int(round(float(duration_s) / FMRI_TR_S)))
+    return predictions[:n_trs]
+
+
 def infer_feature_dims_and_duration(
     extracted: dict[str, tuple[np.ndarray, np.ndarray | None]],
 ) -> tuple[dict[str, tuple[int, int] | None], float]:
@@ -326,7 +335,7 @@ def run_inference(request: InferenceRequest) -> np.ndarray:
         WINDOW_N_TRS,
         len(segment_starts) * WINDOW_N_TRS,
     )
-    return predict_windows(
+    predictions = predict_windows(
         model,
         extracted=extracted,
         modalities=modalities,
@@ -336,6 +345,17 @@ def run_inference(request: InferenceRequest) -> np.ndarray:
         precision=cfg.training.precision,
         device=request.device,
     )
+    from brain_enc.data.algonauts import _video_duration_s
+
+    video_duration_s = _video_duration_s(str(request.video))
+    trimmed = trim_predictions_to_duration(predictions, video_duration_s)
+    logger.info(
+        "Trimmed predictions to video duration %.1f s: %d -> %d TRs",
+        video_duration_s,
+        predictions.shape[0],
+        trimmed.shape[0],
+    )
+    return trimmed
 
 
 def _parse_request(argv: list[str] | None) -> InferenceRequest:
