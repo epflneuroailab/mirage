@@ -1,9 +1,13 @@
 # MIRAGE: Adaptive Multimodal Gating for Whole-Brain fMRI Encoding
 
-MIRAGE is a multimodal whole-brain fMRI encoder for naturalistic video. It uses
-Qwen3-Omni hidden-state features from video, audio, and transcript streams, then
-predicts BOLD responses in 1,000 cortical parcels for the Algonauts 2025
-subjects.
+![arXiv](https://img.shields.io/badge/arXiv-2411.05712-b31b1b.svg?logo=arxiv&logoColor=white)
+![Project Page](https://img.shields.io/badge/Project%20Page-EPFL%20site-E60028.svg?logo=googlechrome&logoColor=white)
+![Hugging Face](https://img.shields.io/badge/Hugging%20Face-Model-FFD21E.svg?logo=huggingface&logoColor=black)
+
+MIRAGE (Multimodal Integration with Representation-Adaptive Gated Encoding) is
+a multimodal whole-brain fMRI encoder for naturalistic video. It uses Qwen3-Omni
+hidden-state features from video, audio, and transcript streams, then predicts
+BOLD responses in 1,000 cortical parcels for the Algonauts 2025 subjects.
 
 This repository contains the training, evaluation, submission, and
 video inference code for the MIRAGE preprint. Pretrained weights are
