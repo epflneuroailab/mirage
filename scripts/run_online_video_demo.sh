@@ -35,7 +35,7 @@ RUN_ROOT="${RUN_ROOT:-${REPO_ROOT}/outputs/online_video_demo}"
 WORK_DIR="${WORK_DIR:-${RUN_ROOT}/work}"
 OUTPUT_DIR="${OUTPUT_DIR:-${RUN_ROOT}/predictions}"
 WEIGHTS_DIR="${MIRAGE_WEIGHTS_DIR:-${WORK_DIR}/weights/mirage}"
-VIDEO_URL="${MIRAGE_VIDEO_URL:-https://www.w3schools.com/html/mov_bbb.mp4}"
+VIDEO_URL="${MIRAGE_VIDEO_URL:-https://raw.githubusercontent.com/bower-media-samples/big-buck-bunny-1080p-30s/master/video.mp4}"
 VIDEO_PATH="${VIDEO_PATH:-${WORK_DIR}/online_sample.mp4}"
 MANIFEST_PATH="${MANIFEST_PATH:-${WORK_DIR}/online_sample.tsv}"
 
@@ -120,13 +120,11 @@ cd "${REPO_ROOT}"
 FIRST_SUBJECT="${MIRAGE_SUBJECTS%%,*}"
 PREDICTION_PATH="${OUTPUT_DIR}/online_sample_${FIRST_SUBJECT}.npy"
 GLASS_MEAN_PATH="${OUTPUT_DIR}/online_sample_${FIRST_SUBJECT}_glass_mean.png"
-GLASS_PEAK_PATH="${OUTPUT_DIR}/online_sample_${FIRST_SUBJECT}_glass_peak.png"
 GLASS_VIDEO_PATH="${OUTPUT_DIR}/online_sample_${FIRST_SUBJECT}_glass_brain.mp4"
 GLASS_FRAME_DIR="${OUTPUT_DIR}/online_sample_${FIRST_SUBJECT}_glass_frames"
 
 PREDICTION_PATH="${PREDICTION_PATH}" \
 GLASS_MEAN_PATH="${GLASS_MEAN_PATH}" \
-GLASS_PEAK_PATH="${GLASS_PEAK_PATH}" \
 GLASS_VIDEO_PATH="${GLASS_VIDEO_PATH}" \
 GLASS_FRAME_DIR="${GLASS_FRAME_DIR}" \
 MIRAGE_VIDEO_FPS="${MIRAGE_VIDEO_FPS:-6}" \
@@ -166,14 +164,10 @@ if pred.ndim != 2 or pred.shape[1] != 1000:
     raise SystemExit(f"Expected prediction shape (n_trs, 1000), got {pred.shape}")
 
 mean_values = pred.mean(axis=0)
-peak_tr = int(np.argmax(np.sqrt(np.mean(np.square(pred), axis=1))))
-peak_values = pred[peak_tr]
 
 mean_img = parcels_to_volume(mean_values)
-peak_img = parcels_to_volume(peak_values)
 
 mean_path = Path(os.environ["GLASS_MEAN_PATH"])
-peak_path = Path(os.environ["GLASS_PEAK_PATH"])
 video_path = Path(os.environ["GLASS_VIDEO_PATH"])
 frame_dir = Path(os.environ["GLASS_FRAME_DIR"])
 mean_path.parent.mkdir(parents=True, exist_ok=True)
@@ -187,14 +181,6 @@ plotting.plot_glass_brain(
     title="MIRAGE mean predicted response",
     output_file=str(mean_path),
 )
-plotting.plot_glass_brain(
-    peak_img,
-    display_mode="lyrz",
-    colorbar=True,
-    plot_abs=False,
-    title=f"MIRAGE predicted response, peak TR {peak_tr}",
-    output_file=str(peak_path),
-)
 
 fps = float(os.environ["MIRAGE_VIDEO_FPS"])
 max_frames = max(1, int(os.environ["MIRAGE_VIDEO_MAX_FRAMES"]))
@@ -204,6 +190,9 @@ frame_indices = np.linspace(
     num=min(max_frames, pred.shape[0]),
     dtype=int,
 )
+frame_vmax = float(np.nanmax(np.abs(pred)))
+if not np.isfinite(frame_vmax) or frame_vmax <= 0.0:
+    frame_vmax = 1.0
 frame_paths = []
 for frame_number, tr_idx in enumerate(frame_indices):
     frame_path = frame_dir / f"frame_{frame_number:04d}.png"
@@ -213,6 +202,9 @@ for frame_number, tr_idx in enumerate(frame_indices):
         display_mode="lyrz",
         colorbar=True,
         plot_abs=False,
+        vmin=-frame_vmax,
+        vmax=frame_vmax,
+        symmetric_cbar=True,
         title=f"MIRAGE predicted response, TR {int(tr_idx)}",
         output_file=str(frame_path),
     )
@@ -223,7 +215,6 @@ with imageio.get_writer(video_path, fps=fps, macro_block_size=16) as writer:
         writer.append_data(imageio.imread(frame_path))
 
 print(f"Wrote glass-brain mean map: {mean_path}")
-print(f"Wrote glass-brain peak-TR map: {peak_path}")
 print(f"Wrote glass-brain video: {video_path}")
 PY
 
@@ -232,5 +223,4 @@ echo "Demo outputs:"
 echo "  predictions: ${OUTPUT_DIR}"
 echo "  summary:     ${OUTPUT_DIR}/manifest_inference_summary.csv"
 echo "  glass mean:  ${GLASS_MEAN_PATH}"
-echo "  glass peak:  ${GLASS_PEAK_PATH}"
 echo "  glass video: ${GLASS_VIDEO_PATH}"

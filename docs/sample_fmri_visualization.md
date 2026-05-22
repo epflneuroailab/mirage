@@ -14,7 +14,6 @@ checkpoint if needed, runs MIRAGE inference for `sub-01`, and writes:
 - `online_sample_sub-01.npy`: predicted fMRI matrix with shape `(n_trs, 1000)`.
 - `online_sample_sub-01.png`: compact matrix preview from manifest inference.
 - `online_sample_sub-01_glass_mean.png`: mean predicted response as a glass brain.
-- `online_sample_sub-01_glass_peak.png`: peak-TR predicted response as a glass brain.
 - `online_sample_sub-01_glass_brain.mp4`: glass-brain video over predicted TRs.
 - `online_sample_sub-01_glass_frames/`: rendered frames used for the MP4.
 
