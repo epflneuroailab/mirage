@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "mirage-brain-encoder"
 version = "0.1.0"
-description = "MIRAGE Multimodal Whole Brain Encoder for naturalistic-video fMRI prediction"
+description = "MIRAGE adaptive multimodal gating encoder for naturalistic-video fMRI prediction"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 dependencies = [

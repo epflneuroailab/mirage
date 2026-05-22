@@ -1,4 +1,4 @@
-# MIRAGE Multimodal Whole Brain Encoder
+# MIRAGE: Adaptive Multimodal Gating for Whole-Brain fMRI Encoding
 
 MIRAGE is a multimodal whole-brain fMRI encoder for naturalistic video. It uses
 Qwen3-Omni hidden-state features from video, audio, and transcript streams, then
@@ -120,10 +120,10 @@ Per-subject Pearson r on the OOD test set:
 ## Citation
 
 ```bibtex
-@misc{mirage2026,
-  title = {MIRAGE: Multimodal Inference for Representational Alignment and General Encoding},
-  author = {EPFL NeuroAI Lab},
-  year = {2026},
-  url = {https://github.com/epflneuroailab/mirage}
+@article{gokce2026mirage,
+  title = {MIRAGE: Adaptive Multimodal Gating for Whole-Brain fMRI Encoding},
+  author = {Gokce, Abdulkadir and AlKhamissi, Badr and Schrimpf, Martin},
+  journal = {arXiv preprint},
+  year = {2026}
 }
 ```
