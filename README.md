@@ -1,6 +1,6 @@
 # MIRAGE: Adaptive Multimodal Gating for Whole-Brain fMRI Encoding
 
-[![arXiv](https://img.shields.io/badge/arXiv-2411.05712-b31b1b.svg?logo=arxiv&logoColor=white)](https://arxiv.org)
+[![arXiv](https://img.shields.io/badge/arXiv-2605.29850-b31b1b.svg?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2605.29850)
 [![Project Page](https://img.shields.io/badge/Project%20Page-EPFL%20site-E60028.svg?logo=googlechrome&logoColor=white)](https://mirage-brain.epfl.ch/)
 [![Hugging Face](https://img.shields.io/badge/Hugging%20Face-Model-FFD21E.svg?logo=huggingface)](https://huggingface.co/epfl-neuroai/mirage)
 
@@ -125,10 +125,13 @@ Per-subject Pearson r on the OOD test set:
 ## Citation
 
 ```bibtex
-@article{gokce2026mirage,
-  title = {MIRAGE: Adaptive Multimodal Gating for Whole-Brain fMRI Encoding},
-  author = {Gokce, Abdulkadir and AlKhamissi, Badr and Schrimpf, Martin},
-  journal = {arXiv preprint},
-  year = {2026}
+@misc{gokce2026mirageadaptivemultimodalgating,
+      title={MIRAGE: Adaptive Multimodal Gating for Whole-Brain fMRI Encoding}, 
+      author={Abdulkadir Gokce and Badr AlKhamissi and Martin Schrimpf},
+      year={2026},
+      eprint={2605.29850},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2605.29850}, 
 }
 ```
