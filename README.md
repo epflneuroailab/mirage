@@ -81,7 +81,7 @@ outputs/online_video_demo/
 Use `MIRAGE_VIDEO_URL`, `MIRAGE_SUBJECTS`, `MIRAGE_DEVICE`,
 `MIRAGE_VIDEO_FPS`, and `MIRAGE_VIDEO_MAX_FRAMES` to customize the demo.
 
-## Public Workflows
+## Workflows
 
 Training requires cached features, so run extraction first:
 
@@ -125,7 +125,7 @@ Per-subject Pearson r on the OOD test set:
 ## Citation
 
 ```bibtex
-@misc{gokce2026mirageadaptivemultimodalgating,
+@misc{gokce2026mirage,
       title={MIRAGE: Adaptive Multimodal Gating for Whole-Brain fMRI Encoding}, 
       author={Abdulkadir Gokce and Badr AlKhamissi and Martin Schrimpf},
       year={2026},
